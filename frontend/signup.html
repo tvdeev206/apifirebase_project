@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReNO Sign Up</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Rethink Sans"', 'sans-serif'],
+            serif: ['"Hedvig Letters Serif"', 'serif'],
+          },
+          colors: {
+            brand: {
+              orange: '#FA9819',
+              offBlue: '#E8EBEF',
+              babyBlue: '#C6EBF7'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-white font-sans antialiased overflow-hidden">
+
+<div class="min-h-screen flex relative overflow-hidden">
+
+  <div class="absolute -top-40 -left-40 w-[500px] h-[500px] bg-brand-babyBlue opacity-40 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-brand-orange/10 rounded-full blur-3xl"></div>
+
+  <!-- LEFT -->
+  <section class="hidden lg:flex w-1/2 bg-brand-offBlue relative z-10">
+    <div class="flex flex-col justify-center p-16 h-full">
+
+      <h1 class="text-6xl font-bold tracking-tighter mb-8">
+        Build your
+        <span class="text-brand-orange">workspace</span>
+      </h1>
+
+      <p class="text-xl text-gray-600 leading-relaxed">
+        Create your ReNO account and start organizing smarter notes.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- RIGHT -->
+  <section class="flex-1 flex items-center justify-center px-8 relative z-10">
+
+    <div class="w-full max-w-md">
+
+      <div class="mb-10">
+        <h2 class="text-5xl font-bold tracking-tighter mb-4">
+          Create Account
+        </h2>
+
+        <p class="text-gray-500 text-lg">
+          Join ReNO today
+        </p>
+      </div>
+
+      <form onsubmit="event.preventDefault(); signup();" class="space-y-5">
+
+        <input
+          id="email"
+          type="email"
+          placeholder="Email"
+          required
+          class="w-full border border-gray-200 rounded-2xl px-5 py-4"
+        >
+
+        <input
+          id="password"
+          type="password"
+          placeholder="Password"
+          required
+          class="w-full border border-gray-200 rounded-2xl px-5 py-4"
+        >
+
+        <button
+          type="submit"
+          class="w-full bg-brand-orange text-white py-4 rounded-2xl font-medium"
+        >
+          Create Account
+        </button>
+
+      </form>
+
+      <p class="text-center text-gray-500 mt-8">
+        Already have an account?
+
+        <a href="login.html" class="text-brand-orange font-medium hover:underline">
+          Sign In
+        </a>
+      </p>
+
+    </div>
+
+  </section>
+
+</div>
+
+<script type="module" src="../backend/auth.js"></script>
+
+</body>
+</html>

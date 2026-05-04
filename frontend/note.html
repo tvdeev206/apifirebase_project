@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReNO Notes</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Rethink Sans"', 'sans-serif'],
+            serif: ['"Hedvig Letters Serif"', 'serif'],
+          },
+          colors: {
+            brand: {
+              orange: '#FA9819',
+              deepOrange: '#CD4900',
+              babyBlue: '#C6EBF7',
+              offBlue: '#E8EBEF',
+            }
+          }
+        }
+      }
+    }
+    
+    function logout() {
+      localStorage.clear();
+      sessionStorage.clear();
+      window.location.href = "login.html";
+    }
+  </script>
+
+   
+</head>
+
+<body class="bg-gray-50 font-sans antialiased">
+
+<!-- Mobile Header -->
+<header class="lg:hidden sticky top-0 bg-white border-b z-50">
+  <div class="flex justify-between items-center p-5">
+    <div class="font-bold text-xl tracking-tighter">ReNO</div>
+    <button onclick="logout()" class="text-brand-orange font-medium">
+      Logout
+    </button>
+  </div>
+</header>
+
+<div class="flex min-h-screen">
+
+  <!-- Sidebar -->
+  <nav class="hidden lg:flex w-[180px] border-r border-gray-100 p-8 flex-col fixed h-screen bg-white">
+
+    <div class="font-bold text-3xl tracking-tighter mb-12">
+      ReNO
+    </div>
+
+    <ol class="flex flex-col gap-3 font-medium text-[15px] mb-auto">
+
+      <li>
+        <a href="dashboard.html"
+          class="flex items-center px-4 py-3 rounded-xl hover:bg-brand-offBlue hover:text-brand-orange transition">
+          Dashboard
+        </a>
+      </li>
+
+      <li>
+        <a href="notes.html"
+          class="flex items-center px-4 py-3 rounded-xl bg-brand-offBlue text-brand-orange">
+          Notes
+        </a>
+      </li>
+
+      <li>
+        <button onclick="logout()"
+          class="w-full flex items-center px-4 py-3 rounded-xl hover:bg-brand-offBlue hover:text-brand-orange transition text-left">
+          Logout
+        </button>
+      </li>
+
+    </ol>
+
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-1 lg:ml-[180px] p-8">
+
+    <div class="flex justify-between items-center mb-8">
+
+      <div>
+        <h1 class="text-4xl font-bold tracking-tighter">
+          Notes Workspace
+        </h1>
+
+        <p class="text-gray-500 mt-2">
+          Organize thoughts and save them to Firebase
+        </p>
+      </div>
+
+      <button
+        id="saveBtn"
+        onclick="saveNote()"
+        class="bg-brand-orange text-white px-6 py-3 rounded-xl hover:opacity-90 transition"
+      >
+        Save Note
+      </button>
+
+    </div>
+
+    <!-- Note Title -->
+    <input
+      id="noteTitle"
+      type="text"
+      placeholder="Untitled Note"
+      class="w-full text-2xl font-semibold bg-white border border-gray-200 rounded-2xl px-6 py-4 mb-6 outline-none focus:border-brand-orange"
+    >
+
+    <!-- Note Content -->
+    <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6">
+      <textarea
+        id="noteContent"
+        placeholder="Start writing here..."
+        class="w-full h-[550px] resize-none outline-none text-lg leading-relaxed"
+      ></textarea>
+    </div>
+
+  </main>
+
+</div>
+
+<!-- Firebase Save Script -->
+ <script type="module" src="/backend/notes.js"></script>
+</body>
+</html>
