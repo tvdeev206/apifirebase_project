@@ -35,7 +35,6 @@ uvicorn main:app --reload
 - Sau đó đăng nhập bằng gmail hoặc bằng google account
 - Click vào từng feature để sử dụng
 
-## Chạy backend
 
 ## Link video demo
-
+https://drive.google.com/file/d/1CWBUfQsqYX1Kr2L_6Uh0l22RkwEVhaPP/view?usp=sharing
