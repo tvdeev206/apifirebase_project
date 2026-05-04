@@ -31,8 +31,9 @@ pip install requirements.txt
 uvicorn main:app --reload
 
 ## Chạy frontend 
-Chạy unlogin.html bằng "Open with live Server"
----
+- Chạy unlogin.html bằng "Open with live Server"
+- Sau đó đăng nhập bằng gmail hoặc bằng google account
+- Click vào từng feature để sử dụng
 
 ## Chạy backend
 
